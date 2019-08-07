@@ -88,3 +88,4 @@ import (
 
 * <https://iot.mozilla.org/framework/>
 * <https://github.com/julienschmidt/httprouter>
+* <https://github.com/mozilla-iot/mozilla-iot.github.io/pull/58>
