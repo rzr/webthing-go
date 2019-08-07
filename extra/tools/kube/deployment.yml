@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webthing-go
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: webthing-go
+    spec:
+      containers:
+      - image: rzrfreefr/webthing-go:latest
+        name: webthing-go
+        ports:
+        - containerPort: 8888
