@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webthing-go
+spec:
+  ports:
+  - nodePort: 30080
+    port: 8888
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    run: webthing-go
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
