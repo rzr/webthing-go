@@ -30,13 +30,10 @@ func (property Property) setValue(value interface{}) {
 	switch property.valuetype {
 	case "boolean":
 		property.value.boolean = (value).(bool)
-		break
 	case "number":
 		property.value.number = (value).(float64)
-		break
 	case "string":
 		property.value.string = (value).(string)
-		break
 	}
 }
 
@@ -44,13 +41,10 @@ func (property Property) getValue() interface{} {
 	switch property.valuetype {
 	case "boolean":
 		return property.value.boolean
-		break
 	case "number":
 		return property.value.number
-		break
 	case "string":
 		return property.value.string
-		break
 	}
 	return nil
 }
