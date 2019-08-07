@@ -10,7 +10,7 @@
 # https://spdx.org/licenses/MIT.html
 #}
 
-FROM debian:10
+FROM golang:1.10.4
 MAINTAINER Philippe Coval (p.coval@samsung.com)
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -34,11 +34,11 @@ WORKDIR /usr/local/opt/${project}/src/${project}/
 RUN echo "#log: Setup system" \
   && apt-get update -y \
   && apt-get install -y make sudo \
-  && make rule/setup/debian \
   && apt-get clean \
   && sync
 
 ADD . /usr/local/opt/${project}/src/${project}/
+WORKDIR /usr/local/opt/${project}/src/${project}/
 RUN echo "#log: ${project}: Preparing sources" \
   && set -x \
   && make all \
