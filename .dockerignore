@@ -1,0 +1,10 @@
+#.dockerignore
+Dockerfile
+.git/
+#.gitignore
+*~
+*.tmp
+**/iotjs_modules/
+**/node_modules/
+/tmp/
+npm-debug.log
