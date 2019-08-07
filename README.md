@@ -13,6 +13,16 @@ https://godoc.org/github.com/rzr/webthing-go?status.svg
 )](
 http://godoc.org/github.com/rzr/webthing-go
 )
+[![Go Report Card](
+https://goreportcard.com/badge/github.com/rzr/webthing-go
+)](
+https://goreportcard.com/report/github.com/rzr/webthing-go
+)
+[![codebeat badge](
+https://codebeat.co/badges/f6061081-0f1b-4791-9bef-b439eb379cbc
+)](
+https://codebeat.co/projects/github-com-rzr-webthing-go-master
+)
 
 
 ## USAGE: ##
