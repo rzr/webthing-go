@@ -39,7 +39,9 @@ func (property Property) setValue(value interface{}) {
 	case "string":
 		property.value.string = (value).(string)
 	}
-	property.handler(value)
+	if property.handler != nil {
+		property.handler(value)
+	}
 }
 
 func (property Property) getValue() interface{} {
