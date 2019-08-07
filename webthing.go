@@ -64,13 +64,13 @@ type Thing struct {
 	context     string
 	types       []string
 	description string
-	properties  map[string]*Property
+	properties  map[string]Property
 	href        string
 }
 
 // AddProperty add properties with values
 func (thing Thing) AddProperty(property *Property) {
-	thing.properties[property.name] = property
+	thing.properties[property.name] = *property
 }
 
 func (thing Thing) getPropertiesDescriptions() map[string]interface{} {
@@ -91,7 +91,7 @@ func NewThing(id string, title string, types []string, description string) *Thin
 		id:          id,
 		title:       title,
 		href:        "/",
-		properties:  make(map[string]*Property),
+		properties:  make(map[string]Property),
 		types:       types,
 		description: description,
 		context:     "https://iot.mozilla.org/schemas"}
