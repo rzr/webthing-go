@@ -1,10 +1,9 @@
 #.dockerignore
 Dockerfile
 .git/
-#.gitignore
-*~
+# .gitignore
 *.tmp
-**/iotjs_modules/
-**/node_modules/
-/tmp/
-npm-debug.log
+*~
+a.out
+master
+
