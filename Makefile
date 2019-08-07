@@ -16,7 +16,7 @@ all: get build
 	@echo "# log: $@: $^"
 
 get:
-	go $@
+	go $@ || echo "warning: Error is ignored (TODO)"
 
 build:
 	go $@
