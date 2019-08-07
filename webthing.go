@@ -15,6 +15,7 @@ import (
 // Value is a Multitypes place holder, only one is used
 type Value struct {
 	boolean bool
+	integer int
 	number  float64
 	string  string
 }
@@ -31,6 +32,8 @@ func (property Property) setValue(value interface{}) {
 	switch property.valuetype {
 	case "boolean":
 		property.value.boolean = (value).(bool)
+	case "integer":
+		property.value.integer = (value).(int)
 	case "number":
 		property.value.number = (value).(float64)
 	case "string":
@@ -43,6 +46,8 @@ func (property Property) getValue() interface{} {
 	switch property.valuetype {
 	case "boolean":
 		return property.value.boolean
+	case "integer":
+		return property.value.integer
 	case "number":
 		return property.value.number
 	case "string":
