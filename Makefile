@@ -4,22 +4,28 @@
 # Copyright: 2019-present Samsung Electronics Co., Ltd. and other contributors
 # SPDX-License-Identifier: MPL-2.0
 
-port?=8888
-url?=http://localhost:${port}
-main_src?=example/simplest-thing.go
-
-
 default: all
 	@echo "# log: $@: $^"
 
-all: build
+port?=8888
+url?=http://localhost:${port}
+main_src?=example/simplest-thing.go
+sudo?=sudo
+
+all: get build
 	@echo "# log: $@: $^"
+
+get:
+	go $@
 
 build:
 	go $@
 
 run: ${main_src}
 	-go get
+	go run $<
+
+start: ${main_src}
 	go run $<
 
 client/put:
@@ -74,3 +80,13 @@ client:
 	curl -i ${url}/properties/level
 	@echo
 
+
+rule/setup/debian:
+	${sudo} apt-get update
+	${sudo} apt-get install -y \
+ apt-transport-https \
+ make \
+ curl \
+ git \
+ golang \
+ #EOL
