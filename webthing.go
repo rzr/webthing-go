@@ -24,6 +24,7 @@ type Property struct {
 	name      string
 	valuetype string
 	value     *Value
+	handler   func(interface{})
 }
 
 func (property Property) setValue(value interface{}) {
@@ -35,6 +36,7 @@ func (property Property) setValue(value interface{}) {
 	case "string":
 		property.value.string = (value).(string)
 	}
+	property.handler(value)
 }
 
 func (property Property) getValue() interface{} {
@@ -50,8 +52,8 @@ func (property Property) getValue() interface{} {
 }
 
 // NewProperty contruct and assigned value
-func NewProperty(name string, valuetype string, value interface{}) *Property {
-	var property = Property{name: name, valuetype: valuetype}
+func NewProperty(name string, valuetype string, value interface{}, handler func(interface{})) *Property {
+	var property = Property{name: name, valuetype: valuetype, handler: handler}
 	property.value = &Value{}
 	property.setValue(value)
 	return &property

@@ -6,7 +6,12 @@ package main
 
 import (
 	webthing ".."
+	"fmt"
 )
+
+func valueHandler(update interface{}) {
+	fmt.Println("change:", (update).(bool))
+}
 
 func main() {
 	thing := webthing.NewThing(
@@ -15,7 +20,7 @@ func main() {
 		[]string{"OnOffSwitch"},
 		"An actuator example")
 
-	onProperty := webthing.NewProperty("on", "boolean", false)
+	onProperty := webthing.NewProperty("on", "boolean", false, valueHandler)
 	thing.AddProperty(onProperty)
 
 	server := webthing.NewServer(thing, 8888)
