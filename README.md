@@ -13,6 +13,21 @@ https://godoc.org/github.com/rzr/webthing-go?status.svg
 )](
 http://godoc.org/github.com/rzr/webthing-go
 )
+[![pulls](
+https://img.shields.io/docker/pulls/rzrfreefr/webthing-go.svg
+)](
+https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go
+)
+[![Automated Builds](
+https://img.shields.io/docker/automated/rzrfreefr/webthing-go.svg
+)](
+https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go/timeline
+)
+[![Build Status](
+https://img.shields.io/docker/build/rzrfreefr/webthing-go.svg
+)](
+https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go/builds
+)
 [![Go Report Card](
 https://goreportcard.com/badge/github.com/rzr/webthing-go
 )](
