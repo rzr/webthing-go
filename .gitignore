@@ -1,4 +1,5 @@
 # .gitignore
+*.tmp
 *~
 a.out
 master
