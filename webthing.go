@@ -12,7 +12,7 @@ import (
 	"net/http"
 )
 
-// Value is a Multitypes place holder, only one is used
+// Value is a multitypes placeholder, only one is used
 type Value struct {
 	boolean bool
 	integer int
@@ -58,7 +58,7 @@ func (property Property) getValue() interface{} {
 	return nil
 }
 
-// NewProperty contruct and assigned value
+// NewProperty contructs and assign value
 func NewProperty(name string, valuetype string, value interface{}, handler func(interface{})) *Property {
 	var property = Property{name: name, valuetype: valuetype, handler: handler}
 	property.value = &Value{}
@@ -77,7 +77,7 @@ type Thing struct {
 	href        string
 }
 
-// AddProperty add properties with values
+// AddProperty adds property (along values) to thing
 func (thing Thing) AddProperty(property *Property) {
 	thing.properties[property.name] = *property
 }
@@ -180,12 +180,12 @@ func (server Server) propertyGetHandler(w http.ResponseWriter, req *http.Request
 	io.WriteString(w, string(body))
 }
 
-// NewServer construct an http server to be started
+// NewServer constructs an http server to be started
 func NewServer(thing *Thing, port int) *Server {
 	return &Server{thing: thing, port: port}
 }
 
-// Start listen and process to incoming requests
+// Start listening for incoming requests and process using handlers
 func (server Server) Start() {
 	router := httprouter.New()
 	router.GET("/", server.thingHandler)
