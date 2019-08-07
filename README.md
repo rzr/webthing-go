@@ -13,6 +13,11 @@ https://godoc.org/github.com/rzr/webthing-go?status.svg
 )](
 http://godoc.org/github.com/rzr/webthing-go
 )
+[![Build Status](
+https://travis-ci.org/rzr/webthing-go.svg?branch=master
+)](
+https://travis-ci.org/rzr/webthing-go
+)
 [![pulls](
 https://img.shields.io/docker/pulls/rzrfreefr/webthing-go.svg
 )](
