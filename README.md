@@ -8,6 +8,11 @@ https://GitHub.com/rzr/webthing-go/network/
 [![license](
 https://img.shields.io/badge/license-MPL--2.0-blue.svg
 )](LICENSE)
+[![GitHub version](
+https://badge.fury.io/gh/rzr%2Fwebthing-go.svg
+)](
+http://badge.fury.io/gh/rzr%2Fwebthing-go
+)
 [![GoDoc](
 https://godoc.org/github.com/rzr/webthing-go?status.svg
 )](
