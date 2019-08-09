@@ -29,12 +29,12 @@ https://img.shields.io/docker/pulls/rzrfreefr/webthing-go.svg
 https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go
 )
 [![Automated Builds](
-https://img.shields.io/docker/automated/rzrfreefr/webthing-go.svg
+https://img.shields.io/docker/cloud/automated/rzrfreefr/webthing-go.svg
 )](
 https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go/timeline
 )
 [![Build Status](
-https://img.shields.io/docker/build/rzrfreefr/webthing-go.svg
+https://img.shields.io/docker/cloud/build/rzrfreefr/webthing-go.svg
 )](
 https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go/builds
 )
@@ -91,6 +91,7 @@ import (
 
 ## RESOURCES: ##
 
+* <https://rzr.github.io/webthing-go/>
 * <https://iot.mozilla.org/framework/>
 * <https://github.com/julienschmidt/httprouter>
 * <https://github.com/mozilla-iot/mozilla-iot.github.io/pull/58>
