@@ -1,0 +1,57 @@
+Source: golang-github-rzr-webthing-go
+Section: devel
+Priority: optional
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Philippe Coval <p.coval@samsung.com>
+Build-Depends: debhelper (>= 11),
+               dh-golang,
+               golang-any,
+               golang-github-julienschmidt-httprouter-dev
+Standards-Version: 4.2.1
+Homepage: https://github.com/rzr/webthing-go
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-rzr-webthing-go
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-rzr-webthing-go.git
+XS-Go-Import-Path: github.com/rzr/webthing-go
+Testsuite: autopkgtest-pkg-go
+
+Package: golang-github-rzr-webthing-go-dev
+Architecture: all
+Depends: ${misc:Depends},
+         golang-github-julienschmidt-httprouter-dev
+Description: http://purl.org/webthing-go
+ WEBTHING-GO: GitHub forks
+ (https://GitHub.com/rzr/webthing-go/network/) license (LICENSE)
+ GitHub version (http://badge.fury.io/gh/rzr%2Fwebthing-go)
+ GoDoc (http://godoc.org/github.com/rzr/webthing-go)
+ Build Status (https://travis-ci.org/rzr/webthing-go) pulls
+ (https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go)
+ Automated Builds
+ (https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go/timeline)
+ Build Status
+ (https://cloud.docker.com/repository/docker/rzrfreefr/webthing-go/builds)
+ Go Report Card
+ (https://goreportcard.com/report/github.com/rzr/webthing-go) codebeat
+ badge (https://codebeat.co/projects/github-com-rzr-webthing-go-master)
+ USAGE: To get started look at "example" directory (./example):
+ .
+ ```sh go version | go version go1.10.4 linux/amd64 go get
+ github.com/rzr/webthing-go
+ .
+ cd ~/go/src/github.com/rzr/webthing-go go run
+ example/simplest-webthing-go/simplest-thing.go | Listening:
+ :8888 curl http://localhost:8888/properties | {"on":false} curl
+ -X PUT --data '{"on": true}'  http://localhost:8888/properties/on |
+ {"on":true} curl http://localhost:8888/properties/on | {"on":true} curl
+ http://localhost:8888 | jq -M .  | { ...| "title": "ActuatorExample"| }
+ ```
+ .
+ To import published module just use this alias:
+ .
+ go import (
+     webthing "github.com/rzr/webthing-go"
+ )
+ .
+ RESOURCES:• https://rzr.github.io/webthing-go/•
+ https://iot.mozilla.org/framework/•
+ https://github.com/julienschmidt/httprouter•
+ https://github.com/mozilla-iot/mozilla-iot.github.io/pull/58
