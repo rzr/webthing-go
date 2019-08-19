@@ -10,13 +10,13 @@
 # https://spdx.org/licenses/MIT.html
 #}
 
-FROM golang:1.12.9
+FROM golang:1.12.9 as webthing-go-builder
 MAINTAINER Philippe Coval (p.coval@samsung.com)
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LC_ALL en_US.UTF-8
 ENV LANG ${LC_ALL}
-
+    
 RUN echo "#log: Configuring locales" \
   && set -x \
   && apt-get update -y \
@@ -26,25 +26,27 @@ RUN echo "#log: Configuring locales" \
   && dpkg-reconfigure locales \
   && sync
 
-
 ENV project webthing-go
-
-ADD Makefile /usr/local/opt/${project}/src/${project}/
-WORKDIR /usr/local/opt/${project}/src/${project}/
+ENV project_dir /go/src/github.com/rzr/${project}/
+ADD Makefile ${project_dir}
+WORKDIR ${project_dir}
 RUN echo "#log: Setup system" \
   && apt-get update -y \
   && apt-get install -y make sudo \
   && apt-get clean \
   && sync
 
-ADD . /usr/local/opt/${project}/src/${project}/
-WORKDIR /usr/local/opt/${project}/src/${project}/
+ADD . ${project_dir}
+WORKDIR ${project_dir}
 RUN echo "#log: ${project}: Preparing sources" \
   && set -x \
   && make all \
   && sync
 
+FROM debian:10
+ENV project webthing-go
+ENV project_dir /go/src/github.com/rzr/${project}/
+COPY --from=webthing-go-builder ${project_dir}/simplest-webthing-go /usr/local/bin/
 EXPOSE 8888
-WORKDIR /usr/local/opt/${project}/src/${project}/
-ENTRYPOINT [ "/usr/bin/make" ]
-CMD [ "start" ]
+ENTRYPOINT [ "/usr/local/bin/simplest-webthing-go" ]
+CMD []
