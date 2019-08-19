@@ -10,7 +10,7 @@
 # https://spdx.org/licenses/MIT.html
 #}
 
-FROM golang:1.10.4
+FROM golang:1.12.9
 MAINTAINER Philippe Coval (p.coval@samsung.com)
 
 ENV DEBIAN_FRONTEND noninteractive
