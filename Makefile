@@ -9,7 +9,7 @@ default: all
 
 port?=8888
 url?=http://localhost:${port}
-main_src?=example/simplest-thing.go
+main_src?=example/simplest-webthing-go/simplest-thing.go
 sudo?=sudo
 
 all: get version build
