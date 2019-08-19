@@ -3,6 +3,8 @@
 ## INDEX: ##
 
 * [kube](kube)
+* [K3S](k3s)
+
 
 ## RESOURCES: ##
 
