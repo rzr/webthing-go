@@ -12,7 +12,7 @@ url?=http://localhost:${port}
 main_src?=example/simplest-thing.go
 sudo?=sudo
 
-all: get build
+all: get version build
 	@echo "# log: $@: $^"
 
 get:
@@ -90,3 +90,7 @@ rule/setup/debian:
  git \
  golang \
  #EOL
+
+version:
+	${MAKE} --version
+	go version
