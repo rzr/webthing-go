@@ -61,7 +61,7 @@ go version
 go get github.com/rzr/webthing-go
 
 cd ~/go/src/github.com/rzr/webthing-go
-go run example/simplest-thing.go
+go run example/simplest-webthing-go/simplest-thing.go
 #| Listening: :8888
 
 curl http://localhost:8888/properties
