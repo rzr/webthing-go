@@ -7,26 +7,37 @@
 default: all
 	@echo "# log: $@: $^"
 
+package_name?=webthing-go
 port?=8888
 url?=http://localhost:${port}
-main_src?=example/simplest-webthing-go/simplest-thing.go
+main_name?=simplest-webthing-go
+main_src?=example/${main_name}/simplest-thing.go
+main_srcs?=$(wildcard ./example/*/*.go | sort)
+main_dirs?=$(dir ${main_srcs})
 sudo?=sudo
 
 all: get version build
 	@echo "# log: $@: $^"
 
 get:
-	go $@ || echo "warning: Error is ignored (TODO)"
-
-build:
 	go $@
 
-run: ${main_src}
+build: ${main_srcs} get
+	go $@
+	for app in ${main_dirs}; do go $@ $${app} ; done
+
+devel/run: ${main_src}
 	-go get
 	go run $<
 
-start: ${main_src}
+${main_name}: build
+	ldd $@
+
+run: ${main_src}
 	go run $<
+
+start: ${main_name}
+	${<D}/${<F}
 
 client/put:
 	@echo
