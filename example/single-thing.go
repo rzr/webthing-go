@@ -5,7 +5,7 @@
 package main
 
 import (
-	webthing ".."
+	webthing "github.com/rzr/webthing-go"
 )
 
 func main() {
