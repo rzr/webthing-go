@@ -15,26 +15,28 @@ main_src?=example/${main_name}/simplest-thing.go
 main_srcs?=$(wildcard ./example/*/*.go | sort)
 main_dirs?=$(dir ${main_srcs})
 sudo?=sudo
+go?=go
+
 
 all: get version build
 	@echo "# log: $@: $^"
 
 get:
-	go $@
+	${go} $@
 
 build: ${main_srcs} get
-	go $@
-	for app in ${main_dirs}; do go $@ $${app} ; done
+	${go} $@
+	for app in ${main_dirs}; do ${go} $@ $${app} ; done
 
 devel/run: ${main_src}
-	-go get
-	go run $<
+	-${go} get
+	${go} run $<
 
 ${main_name}: build
 	ldd $@
 
 run: ${main_src}
-	go run $<
+	${go} run $<
 
 start: ${main_name}
 	${<D}/${<F}
@@ -104,4 +106,4 @@ rule/setup/debian:
 
 version:
 	${MAKE} --version
-	go version
+	${go} version
