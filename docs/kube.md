@@ -84,3 +84,6 @@ ps auxf | grep -- "$command" | grep -v grep # on master
 #| root     11924  0.0  0.0 477272  5696 ?        Sl   19:33   0:00  |           \_ /tmp/go-build000000403/b001/exe/simplest-thing
 ```
 
+## RESOURCES: ##
+
+* <https://github.com/rzr/webthing-iotjs/wiki/Kube>

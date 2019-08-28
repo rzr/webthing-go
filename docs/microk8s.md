@@ -7,7 +7,8 @@ As an extra, here is a recipe to run a service using Microk8s:
 ```sh
 name="webthing-go"
 url="https://raw.githubusercontent.com/rzr/${name}/master/extra/tools/kube/$name.yml"
-kubectl=kubectl
+export PATH="/snap/microk8s/current/:/snap/bin/:$PATH"
+kubectl="microk8s.kubectl"
 port=8888
 #
 sudo sync
@@ -16,9 +17,9 @@ sudo snap install microk8s --classic # v1.15.2
 microk8s.enable dns
 $kubectl apply -f "${url}"
 $kubectl describe services/$name 
-$kubectl get all --all-namespaces | grep "$name | grep 'Running'
+$kubectl get all --all-namespaces | grep "$name" | grep 'Running'
 # Through kube-proxy
-port=$(kubectl get svc ${name} -o=jsonpath="{.spec.ports[?(@.port==$port)].nodePort}")
+port=$($kubectl get svc ${name} -o=jsonpath="{.spec.ports[?(@.port==$port)].nodePort}")
 curl -i http://127.0.0.1:${port}/ | grep 'HTTP/1.1'
 #| HTTP/1.1 200 OK
 
@@ -60,7 +61,7 @@ $kubectl get nodes # Wait "Ready state"
 
 microk8s.enable dns
 
-$kubectl run "${name}" --image="${image}"
+$kubectl run --generator=run-pod/v1 "${name}" --image="${image}"
 
 $kubectl get all --all-namespaces | grep "$name" # ContainerCreating, Running
 #| default       pod/webthing-go                       1/1     Running     0          19s
@@ -68,7 +69,7 @@ $kubectl get all --all-namespaces | grep "$name" # ContainerCreating, Running
 pod=$($kubectl get all --all-namespaces \
   | grep -o "pod/${name}-.*" | cut -d/ -f2 | awk '{ print $1}' \
   || echo failure) && echo pod="$pod"
-$kubectl describe pod "$pod" | grep 'Status:             Running' # Pending,...
+$kubectl describe pod "$pod" | grep 'Status: * Running'
 ip=$($kubectl describe pod "$pod" | grep 'IP:' | awk '{ print $2 }') && echo "ip=${ip}"
 
 curl -qi "http://${ip}:${port}" | grep 'HTTP/1.1'
