@@ -1,5 +1,7 @@
 # WEBTHING-GO: #
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ced7751cfabf4bf9af168c24b173d422)](https://app.codacy.com/app/rzr/webthing-go?utm_source=github.com&utm_medium=referral&utm_content=rzr/webthing-go&utm_campaign=Badge_Grade_Dashboard)
+
 [![GitHub forks](
 https://img.shields.io/github/forks/rzr/webthing-go.svg?style=social&label=Fork&maxAge=2592000
 )](
