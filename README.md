@@ -1,4 +1,4 @@
-# WEBTHING-GO: #
+# WEBTHING-GO #
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ced7751cfabf4bf9af168c24b173d422)](https://app.codacy.com/app/rzr/webthing-go?utm_source=github.com&utm_medium=referral&utm_content=rzr/webthing-go&utm_campaign=Badge_Grade_Dashboard)
 
@@ -51,8 +51,7 @@ https://codebeat.co/badges/f6061081-0f1b-4791-9bef-b439eb379cbc
 https://codebeat.co/projects/github-com-rzr-webthing-go-master
 )
 
-
-## USAGE: ##
+## USAGE ##
 
 To get started look at ["example" directory](./example):
 
@@ -81,7 +80,6 @@ curl http://localhost:8888 | jq -M .
 #| }
 ```
 
-
 To import published module just use this alias:
 
 ```go
@@ -90,10 +88,9 @@ import (
 )
 ```
 
+## RESOURCES ##
 
-## RESOURCES: ##
-
-* <https://rzr.github.io/webthing-go/>
-* <https://iot.mozilla.org/framework/>
-* <https://github.com/julienschmidt/httprouter>
-* <https://github.com/mozilla-iot/mozilla-iot.github.io/pull/58>
+*   <https://rzr.github.io/webthing-go/>
+*   <https://iot.mozilla.org/framework/>
+*   <https://github.com/julienschmidt/httprouter>
+*   <https://github.com/mozilla-iot/mozilla-iot.github.io/pull/58>
