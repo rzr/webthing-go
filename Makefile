@@ -29,7 +29,7 @@ build: ${main_srcs} get
 	for app in ${main_dirs}; do ${go} $@ $${app} ; done
 
 devel/run: ${main_src}
-	-${go} get
+	-${make} get
 	${go} run $<
 
 ${main_name}: build
@@ -92,6 +92,17 @@ client:
 	@echo
 	curl -i ${url}/properties/level
 	@echo
+
+
+rule/setup/alpine:
+	${sudo} apk update
+	go version || ${sudo} apk add go
+	${sudo} apk add \
+git \
+make \
+sudo \
+#EOL
+	${sudo} rm -rfv /var/cache/apk/*
 
 
 rule/setup/debian:
